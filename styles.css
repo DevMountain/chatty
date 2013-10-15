@@ -1,0 +1,25 @@
+h2 span.em {
+	font-style: italic;
+	color: #009900;
+}
+
+.messages {
+	background-color: #eee;
+	border: 2px solid #bbb;
+	padding: 20px;
+	width: 60%;
+	max-width: 700px;
+	margin: 0 auto;
+	height: 500px;
+	overflow-y: auto;
+}
+
+.input {
+	padding-top: 15px;
+	width: 60%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+.input input {
+	width: 100%;
+}
