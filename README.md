@@ -30,10 +30,10 @@ You're going to need to do a little bit of work to get the request data. It's ea
 ###Step 4: User input
 * Attach an ng-model to the text input on the page. 
 * Utilize the ng-enter directive to call a method on the MessageController when the 'enter' key is pressed while focusing on the input. e.g. `ng-enter="addMessage()"`
-* Create the corresponding method in your controller's scope (in the example previously, `addMessage`
+* Create the corresponding method in your controller's scope (in the example previously, `addMessage`)
 * Your method will need to do a $http.post (which is very similar to $http.get except that it also sends data) and send the message data from your ng-model on the input up to your server.
 * In the success callback, clear the ng-model and initiate the $http.get again to refresh the message list
-* **NOTE**: You will probably find that your POST at first, doesn't work. Open your Chrome developer tools to the Network tab, and you'll notice that Chrome is automatically sending an OPTIONS call (REST verb) proactively to your server before it performs the POST. This is a security features of browsers when they perform cross domain requests.
+* **NOTE**: You will probably find that your POST at first doesn't work. Open your Chrome developer tools to the Network tab, and you'll notice that Chrome is automatically sending an OPTIONS call (REST verb) proactively to your server before it performs the POST. This is a security features of browsers when they perform cross domain requests, called 'preflighting' https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#preflight-request.
   * Update your server.js to also check for an OPTIONS method
   * Have the reponse from the OPTIONS method set the following headers:
     * `'Access-Control-Allow-Origin': '*'`
