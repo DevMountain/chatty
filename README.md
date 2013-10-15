@@ -25,7 +25,7 @@ You're going to need to do a little bit of work to get the request data. It's ea
 * Fill in the required directives for ng-app, ng-controller (MesssageController.js is already provided for you)
 * Create an app variable in app.js that represents your Angular app
 * Create your controller in MessageController.js that uses $http.get to retrieve the messages from your server and assigns them to a scope variable
-* Use the ng-repeat directive for the div.message element in the index.html file so that you can display the messages from the server
+* Use the ng-repeat directive to create chat div elements in the div.messages element so that you can display the messages from the server
 
 ###Step 4: User input
 * Attach an ng-model to the text input on the page. 
@@ -41,10 +41,10 @@ You're going to need to do a little bit of work to get the request data. It's ea
     * `'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'`
   * Now your POST requests should work from Chrome
 
-###Step 4: (Black Diamond): Add timestamps
+###Step 5 (Black Diamond): Add timestamps
 * On the server, automatically add in a timestamp for each new message in your array.
 * On the client display the timestamp in the div.timestamp element in your ng-repeat
 
-###Step 4 (Black Diamond): Add in some more data
+###Step 6 (Black Diamond): Add in some more data
 * Try adding some more sophistication to your chat client, such as username, or profile_picture. Allow the user to specify their username when posting a message.
  
