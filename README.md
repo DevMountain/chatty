@@ -23,7 +23,7 @@ You're going to need to do a little bit of work to get the request data. It's ea
 
 ###Step 3: Finish the angular client
 * Fill in the required directives for ng-app, ng-controller (MesssageController.js is already provided for you)
-* Create an app variable in app.js that represents your Angular app
+* Create an app variable in app.js that represents your Angular app. Call the app `Chatty`.
 * Create your controller in MessageController.js that uses $http.get to retrieve the messages from your server and assigns them to a scope variable
 * Use the ng-repeat directive to create chat div elements in the div.messages element so that you can display the messages from the server
 
