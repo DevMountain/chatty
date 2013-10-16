@@ -17,7 +17,26 @@ Since we aren't worried about persistently storing information in a chat server 
 * To test your server, run it (`node server.js`) and use cURL, Postman, or jQuery to make a GET request to your server. Try putting in some pre-filled messages into your array to make sure it's returning data the way you expect.
 
 ###Step 2: Create the POST part of your server
-You're going to need to do a little bit of work to get the request data. It's easy to think that we could grab the data from a property like request.body or something, but what if we were uploading entire files to this endpoint? The file would need to be sent in pieces or chunks, and so servers have to be built to get data in stages. Read this article: http://blog.frankgrimm.net/2010/11/howto-access-http-message-body-post-data-in-node-js/, especially the sections called "Read the message body" and "Buffer and decode." In the future with Express, this will be much easier.
+You're going to need to do a little bit of work to get the request data. It's easy to think that we could grab the data from a property like request.body or something, but what if we were uploading entire files to this endpoint? The file would need to be sent in pieces or chunks, and so servers have to be built to get data in stages. 
+
+With node, the way you get those chunks of data is to watch for two events on the request object, like so:
+
+```javascript
+ http.createServer(function(request, response) {
+  if (request.method == 'POST') {
+   var postData = '';
+   request.on('data', function(chunk) {
+    postData += chunk.toString();
+   });
+   request.on('end', function() {
+    console.log("Got POST data:");
+    console.log(JSON.parse(postData));
+   });
+  }
+ }
+```
+
+In the future with Express, this will be much easier. Here are the next to-dos:
 * If the request method is POST, add the message to your messages array, retrieving it from the request JSON body (see paragraph above).
 * Test your server setup using Postman to add a new message via POST
 
