@@ -37,7 +37,7 @@ With node, the way you get those chunks of data is to watch for two events on th
 ```
 
 In the future with Express, this will be much easier. Here are the next to-dos:
-* If the request method is POST, add the message to your messages array, retrieving it from the request JSON body (see paragraph above).
+* If the request method is POST, add the message to your messages array, retrieving it from the request JSON body (see paragraph above). Make sure you end the response with a status, headers, and a body.
 * Test your server setup using Postman to add a new message via POST (make sure you use a "raw" request of type JSON)
 
 ###Step 3: Finish the angular client
