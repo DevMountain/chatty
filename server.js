@@ -1,4 +1,4 @@
-var messages = [];
+var messages = [{message:'hello'}];
 
 http = require('http');
 http.createServer(function(req, res) {
@@ -24,7 +24,17 @@ http.createServer(function(req, res) {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       });
-      res.end("{}");
+      res.end(JSON.stringify(messages));
     });
+  }
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200, {
+        'Connection': 'close',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'OPTIONS, GET, POST',
+        'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+      });
+    res.end("{}");
   }
 }).listen(12200);
