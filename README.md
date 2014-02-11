@@ -41,17 +41,28 @@ In the future with Express, this will be much easier. Here are the next to-dos:
 * Test your server setup using Postman to add a new message via POST (make sure you use a "raw" request of type JSON)
 
 ###Step 3: Finish the angular client
-* Fill in the required directives for ng-app, ng-controller (MesssageController.js is already provided for you)
-* Create an app variable in app.js that represents your Angular app. Call the app `Chatty`.
-* Create your controller in MessageController.js that uses $http.get to retrieve the messages from your server and assigns them to a scope variable
-* Use the ng-repeat directive to create chat div elements in the div.messages element so that you can display the messages from the server
+* The MessageCtrl is already provided, as is the MessageService
+* Connect the MessageCtrl to the main.html view as an ng-controller
+* Populate the MessageService with a `getMessages` method that returns a promise which retrieves the chat messages for the app (Look at the "Team TMNT" project for reference)
+* Add the service to MessageController.js, and call the `getMessages` method, populating the scope var on the `then` from the promise.
+
+```javascript
+$scope.messages = MessageService.getMessages().then(function(data) {
+  $scope.messages = data;
+});
+```
+
+* Use the ng-repeat directive to create div elements for every message so that you can display the messages from the server
 
 ###Step 4: User input
-* Attach an ng-model to the text input on the page. 
+* Create a text input field and attach an ng-model to it.
 * Utilize the ng-enter directive to call a method on the MessageController when the 'enter' key is pressed while focusing on the input. e.g. `ng-enter="addMessage()"`
 * Create the corresponding method in your controller's scope (in the example previously, `addMessage`)
-* Your method will need to do a $http.post (which is very similar to $http.get except that it also sends data) and send the message data from your ng-model on the input up to your server.
-* In the success callback, clear the ng-model and initiate the $http.get again to refresh the message list
+* Your method will call the MessageService and pass the new message, which will then be POSTed up to your server.
+* You will want to re-populate the messages from the server after you've sent the new message, there are a few ways to do this:
+  * You could have the server return the list of messages on the POST call just like it does on the GET call. Then in your service you could return the data and your controller could use the result of the service's call to populate the messages $scope var, just like before.
+  * You could simply initiate another getMessages call in your controller once the addMessage promise has been resolve (in the `then` function).
+* After the addMessage call is finished, clear the ng-model for the newMessage
 * **NOTE**: You will probably find that your POST at first doesn't work. Open your Chrome developer tools to the Network tab, and you'll notice that Chrome is automatically sending an OPTIONS call (REST verb) proactively to your server before it performs the POST. This is a security features of browsers when they perform cross domain requests, called 'preflighting' https://dvcs.w3.org/hg/cors/raw-file/tip/Overview.html#preflight-request.
   * Update your server.js to also check for an OPTIONS method
   * Have the reponse from the OPTIONS method set the following headers:
