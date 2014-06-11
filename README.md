@@ -22,18 +22,19 @@ You're going to need to do a little bit of work to get the request data. It's ea
 With node, the way you get those chunks of data is to watch for two events on the request object, like so:
 
 ```javascript
- http.createServer(function(request, response) {
-  if (request.method == 'POST') {
-   var postData = '';
-   request.on('data', function(chunk) {
-    postData += chunk.toString();
-   });
-   request.on('end', function() {
-    console.log("Got POST data:");
-    console.log(JSON.parse(postData));
-   });
-  }
- }
+var onRequest = function(req, res) {
+    if (req.method == 'POST') {
+       var postData = '';
+       req.on('data', function(chunk) {
+           postData += chunk.toString();
+        });    
+        req.on('end', function() {
+            console.log("Got POST data:");
+            console.log(JSON.parse(postData));
+       });
+    }
+}
+http.createServer(onRequest).listen(12200);
 ```
 
 In the future with Express, this will be much easier. Here are the next to-dos:
