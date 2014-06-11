@@ -48,7 +48,7 @@ In the future with Express, this will be much easier. Here are the next to-dos:
 * Add the service to MessageController.js, and call the `getMessages` method, populating the scope var on the `then` from the promise.
 
 ```javascript
-$scope.messages = MessageService.getMessages().then(function(data) {
+MessageService.getMessages().then(function(data) {
   $scope.messages = data;
 });
 ```
