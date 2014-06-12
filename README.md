@@ -140,7 +140,7 @@ Let's create our own middleware to deal with headers.
 ```javascript
 app.use(function(req, res, next) {
  //middleware goes here
-}
+});
 ```
 
 Anything that runs in the above function will happen before every request is processed. It's a great place to put header modification. 
