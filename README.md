@@ -124,7 +124,7 @@ Remember all of the crappy code we had to write to get POST data? Express and bo
 * In order to get the POST data without using .on('data') and .on('end'), we'll use bodyParser:
 
 ```javascript
-app.use(bodyParser())
+app.use(bodyParser());
 ```
 
 bodyParser is *middleware*, meaning it runs before every request. It automatically parses the body of requests and puts it together in a nice `req.body` property.
