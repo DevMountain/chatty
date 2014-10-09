@@ -44,7 +44,7 @@ In the future with Express, this will be much easier. But for now, here are the 
 ###Step 3: Finish the angular client
 * The MessageCtrl is already provided, as is the MessageService
 * Connect the MessageCtrl to the main.html view as an ng-controller
-* Populate the MessageService with a `getMessages` method that returns a promise which retrieves the chat messages for the app (Look at the "Team TMNT" project for reference)
+* Populate the MessageService with a `getMessages` method that returns a promise which retrieves the chat messages for the app (Look at older Angular projects you've worked on for reference)
 * Add the service to MessageController.js, and call the `getMessages` method, populating the scope var on the `then` from the promise.
 
 ```javascript
@@ -57,7 +57,7 @@ MessageService.getMessages().then(function(data) {
 
 ###Step 4: User input
 * Create a text input field and attach an ng-model to it.
-* Utilize the ng-enter directive to call a method on the MessageController when the 'enter' key is pressed while focusing on the input. e.g. `ng-enter="addMessage()"`
+* Wrap the input with a form tag and utilize the ng-submit directive to call a method on the MessageController when the 'enter' key is pressed. e.g. `ng-submit="addMessage()"`
 * Create the corresponding method in your controller's scope (in the example previously, `addMessage`)
 * Your method will call the MessageService and pass the new message, which will then be POSTed up to your server.
 * You will want to re-populate the messages from the server after you've sent the new message, there are a few ways to do this:
@@ -80,7 +80,7 @@ MessageService.getMessages().then(function(data) {
 * Try adding some more sophistication to your chat client, such as username, or profile_picture. Allow the user to specify their username when posting a message.
  
 
-##Day 2: Express
+##Day 2: Refactor with Express
 
 ###Step 7: Install Express
 Let's install Express to get started. 
