@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('chattyApp')
-  .service('MessageService', function MessageService() {
+  .factory('MessageService', function MessageService() {
     return {
     }
   });
