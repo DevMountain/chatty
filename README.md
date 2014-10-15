@@ -12,7 +12,7 @@ Since we aren't worried about persistently storing information in a chat server 
 * Create an array for storing your messages temporarily. You could call it `messages`.
 * Write your callback to the createServer method, remembering that it will be passed both a request and response parameter
 * Examine the request to see which REST verb was used (check the `method` property of the request param).
-* If the method is GET, return the messages array (JSON stringified) in the response. 
+* If the method is GET, end the response with the messages array (JSON stringified) in the response. 
   * Dont forget to set the appropriate headers for `Content-type` and `Access-Control-Allow-Origin`
 * To test your server, run it (`node server.js`) and use cURL or Postman to make a GET request to your server. Try putting in some pre-filled messages into your array to make sure it's returning data the way you expect.
 
