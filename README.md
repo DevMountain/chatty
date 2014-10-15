@@ -1,7 +1,7 @@
 chatty
 ======
 
-The start of the messaging client for DevMountain
+A simple messaging/chat server and client
 
 ##Objectives
 You're going to use Node.js to build a basic, REST-based chat server. You'll also plug in the basic front end Angular aspects of the project to make a fully functioning application. Your first **full stack** application!
@@ -9,9 +9,9 @@ You're going to use Node.js to build a basic, REST-based chat server. You'll als
 ###Step 1: Create the Server (GET)
 Since we aren't worried about persistently storing information in a chat server (for now, anyway), your understanding of Node.js and REST will allow you to create a server that will post and retrieve messages (the C & R verbs of CRUD) for a chatroom.
 * In server.js, import the 'http' module and use the `createServer` method to listen on a port of your choosing (probably something between 8000 and 12000).
-* Create an array for storing your messages temporarily. You could call it `messages`.
+* Create an array for storing your messages temporarily. You could call it `messages`. Think about where this should be stored so that the data 'persists' between requests.
 * Write your callback to the createServer method, remembering that it will be passed both a request and response parameter
-* Examine the request to see which REST verb was used (check the `method` property of the request param).
+* Examine the request parameter to see which REST verb was used (check the `method` property of the request param).
 * If the method is GET, end the response with the messages array (JSON stringified) in the response. 
   * Dont forget to set the appropriate headers for `Content-type` and `Access-Control-Allow-Origin`
 * To test your server, run it (`node server.js`) and use cURL or Postman to make a GET request to your server. Try putting in some pre-filled messages into your array to make sure it's returning data the way you expect.
@@ -48,8 +48,8 @@ In the future with Express, this will be much easier. But for now, here are the 
 * Add the service to MessageController.js, and call the `getMessages` method, populating the scope var on the `then` from the promise.
 
 ```javascript
-MessageService.getMessages().then(function(data) {
-  $scope.messages = data;
+MessageService.getMessages().then(function(response) {
+  $scope.messages = response.data;
 });
 ```
 
