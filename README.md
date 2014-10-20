@@ -42,7 +42,7 @@ In the future with Express, this will be much easier. But for now, here are the 
 * Test your server setup using Postman to add a new message via POST (make sure you use a "raw" request of type JSON)
 
 ###Step 3: Finish the angular client
-To run your client side-by-side with your server, consider running the npm module `http-server`in the same directory. Whatever port it uses is what you'll be putting in your browser to test (e.g. localhost:8080). Remember, your API is running on a separate process on a separate port.
+To run your client side-by-side with your server, consider running the npm module `http-server`in the same directory. Whatever port it uses is what you'll be putting in your browser to test (e.g. localhost:8080). Remember, your API is running on a separate process on a separate port. This means that you'll have two seaprate "domains" you'll be hosting content from, a domain for your Node app (which responds to GET and POST) and `http-server` serving just static files (index.html, css, etc).
 
 * The MessageCtrl is already provided, as is the MessageService
 * Connect the MessageCtrl to the main.html view as an ng-controller
