@@ -13,7 +13,7 @@ Since we aren't worried about persistently storing information in a chat server 
 * Write your callback to the createServer method, remembering that it will be passed both a request and response parameter
 * Examine the request parameter to see which REST verb was used (check the `method` property of the request param).
 * If the method is GET, end the response with the messages array (JSON stringified) in the response. 
-  * Dont forget to set the appropriate headers for `Content-type` and `Access-Control-Allow-Origin`
+  * Dont forget to set the appropriate headers for `Content-type`
 * To test your server, run it (`node server.js`) and use cURL or Postman to make a GET request to your server. Try putting in some pre-filled messages into your array to make sure it's returning data the way you expect.
 
 ###Step 2: Create the POST part of your server
@@ -41,7 +41,7 @@ In the future with Express, this will be much easier. But for now, here are the 
 * If the request method is POST, add the message to your messages array, retrieving it from the request JSON body (see paragraph above). Make sure you end the response with a status, headers, and a body.
 * Test your server setup using Postman to add a new message via POST (make sure you use a "raw" request of type JSON)
 
-###Step 3: Finish the angular client
+###Step 3: Finish the Angular client
 To run your client side-by-side with your server, consider running the npm module `http-server`in the same directory. Whatever port it uses is what you'll be putting in your browser to test (e.g. localhost:8080). Remember, your API is running on a separate process on a separate port. This means that you'll have two seaprate "domains" you'll be hosting content from, a domain for your Node app (which responds to GET and POST) and `http-server` serving just static files (index.html, css, etc).
 
 * The MessageCtrl is already provided, as is the MessageService
