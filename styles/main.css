@@ -77,3 +77,8 @@ body {
     border-bottom: 0;
   }
 }
+
+.message-text {
+  text-align: left;
+  font-size: 10px;
+}
