@@ -147,4 +147,4 @@ app.use(function(req, res, next) {
 
 Anything that runs in the above function will happen before every request is processed. It's a great place to put header modification. 
 
-Use your own custom middleware to add the appropriate headers to your server.js. It should look something like this: https://gist.github.com/cahlan/7027693
+Use your own custom middleware to add the appropriate headers to your server.js. It should look something like this: https://gist.github.com/jacob-israel-turner/3ccb040963cb7f59acb2
