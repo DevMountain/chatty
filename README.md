@@ -23,6 +23,17 @@ With Node, the way you get those chunks of data is to watch for two events on th
 
 ```javascript
 var onRequest = function(req, res) {
+    // set special CORS and CSP headers
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+      
+    // handles the special OPTIONS method for CORS
+    if ('OPTIONS' === req.method) {
+      res.end();
+      return;
+    }
+    
     if (req.method == 'POST') {
        var postData = '';
        req.on('data', function(chunk) {
