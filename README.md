@@ -22,22 +22,32 @@ You're going to need to do a little bit of work to get the request data. It's ea
 With Node, the way you get those chunks of data is to watch for two events on the request object, like so:
 
 ```javascript
-var onRequest = function(req, res) {
-    if (req.method == 'POST') {
-       var postData = '';
+var app = function (req, res) {
+    // If data was included with the request, we'll know because content-type will be specified
+    if (req.headers['content-type'] && req.method === 'POST') {
+       var stringData = '';
        req.on('data', function(chunk) {
-           postData += chunk.toString();
+           stringData += chunk.toString('utf8');
         });    
         req.on('end', function() {
-            console.log("Got POST data:");
-            console.log(JSON.parse(postData));
+            var data = JSON.parse(stringData);
+            
+            console.log("Got POST body:");
+            console.log(data);
        });
     }
 }
-http.createServer(onRequest).listen(12200);
+
+// 
+var port = 122000;
+var server = http.createServer();
+server.on('request', app);
+server.listen(port, function () {
+  console.log('Listening on http://localhost:' + server.address().port);
+});
 ```
 
-In the future with Express, this will be much easier. But for now, here are the next to-dos:
+In the future with Express we can use modules to handle CORS and parsing json, but for now, here are the next to-dos:
 * If the request method is POST, add the message to your messages array, retrieving it from the request JSON body (see paragraph above). Make sure you end the response with a status, headers, and a body.
 * Test your server setup using Postman to add a new message via POST (make sure you use a "raw" request of type JSON)
 
@@ -88,7 +98,7 @@ MessageService.getMessages().then(function(response) {
 Let's install Express to get started. 
 
 ```
-npm install --save express
+npm install --save express@4.x
 ```
 
 This saves express to your package.json
