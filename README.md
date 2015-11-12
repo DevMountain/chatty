@@ -7,7 +7,7 @@ You're going to use Node.js and Express to build a basic REST-based chat server.
 
 #### Step 1: Create the Server (GET & Middleware)
 Since we aren't worried about persistently storing information in a chat server (for now, anyway), your understanding of Node.js and REST will allow you to create a server that will post and retrieve messages (the C & R verbs of CRUD) for a chatroom.
-* First we'll follow the beginning steps from this morning's mini project. First `echo node_modules/` to a `.gitignore`. Then, `npm init` and `npm install express --save`. This will download the Express library and save it to your package.json.
+* First we'll follow the beginning steps from this morning's mini project. First `touch .gitignore` and add `node_modules` to that `.gitignore`. Then, `npm init` and `npm install express --save`. This will download the Express library and save it to your package.json.
 * In server.js, import the 'express' module and initialize it by calling `var app = express()`. Now you can use the `app.listen` method on a port of your choice (between 8000 and 12000 is usual).
 * Create an array for storing your messages temporarily. You could call it `messages`. Think about where this should be stored so that the data 'persists' between requests.
 * Write a new GET endpoint that returns a JSON stringified response of your messages array. It will look something like this:
