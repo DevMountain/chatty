@@ -106,5 +106,19 @@ Take a few minutes to browse through the front-end code provided. It should all 
 ###Step 4 Add timestamps
 Now that we have basic functionality, let's do some server-side data manipulation. We want to display a timestamp next to each message and display that timestamp on our front-end. To do this we'll first need to change our `messages` array of strings to an array of objects, with one property being `time` and the other being `message`. Because of this change, we'll need to make some adjustments to our existing code, both front and back-end.
 
-###Step 6 (Black Diamond): Add in some more data
+The front end will be fastest, all we need is to change our HTML to accept objects. Let's change our `ng-repeat` div to look something like this:
+```html
+<div ng-repeat="message in messages track by $index">{{ message.message }} : {{ message.time }}</div>
+```
+This is the only front-end change we need to make! Now we just need to add dates on our back-end, which is as easy as changing what we push to our messages array. Instead of pushing `req.body.message` alone, let's create a new object and push that to the `messages` array. The object should have a `message` property and a `time` property.
+```javascript
+  messages.push({
+    message: req.body.message,
+    time: new Date()
+  });
+```
+
+As easy as that we have added new data on our back-end and passed it back to our front-end. You may have noticed that the date is displaying poorly. Look up the Angular documentation for the 'date' filter and try to set it up so that it shows something along the lines of '5:22 PM'.
+
+###Step 5 (Black Diamond): Add in some more data
 * Try adding some more sophistication to your chat client, such as username, or profile_picture. Allow the user to specify their username when posting a message.
