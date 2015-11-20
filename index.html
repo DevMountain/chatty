@@ -11,15 +11,29 @@
   <body ng-app="chattyApp">
 
     <!-- Add your site or application content here -->
-    <div class="container" ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
-    
+    <div class="container" ng-controller="MainCtrl">
+      <div class="header">
+        <h3 class="text-muted">chatty</h3>
+      </div>
+
+      <form ng-submit="sendMessage()">
+        <input type="text" ng-model="newMessage.message">
+      </form>
+
+      <h4>Latest Chats:</h4>
+      <div class="jumbotron">
+        <div ng-repeat="message in messages">
+          {{message.message}}, {{message.timestamp | date: 'medium'}}
+        </div>
+      </div>
+    </div>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" ></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/message.js"></script>
-    <script src="scripts/services/MessageService.js"></script>
+    <script src="scripts/controllers/mainCtrl.js"></script>
+    <script src="scripts/services/messageService.js"></script>
 </body>
 </html>
