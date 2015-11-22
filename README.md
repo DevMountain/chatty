@@ -1,6 +1,10 @@
 <img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-## Chatty
+Chatty
+======
+
+##Objective
+Use Node.js to build a chat server
 
 A simple messaging/chat server and client
 
