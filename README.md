@@ -97,7 +97,7 @@ app.post('/', function( req, res ) {
 Note that we `.send()` our updated messages array, this lets us avoid having to make a new 'GET' request on the front end if the view needs to be updated.
 
 #### Step 3: Launch the Angular client
-To run your client side-by-side with your server, consider running the a static server such as the npm modules `http-server`, `node-static`, or `live-server` in the same directory. Whatever port it uses is what you'll be putting in your browser to test (e.g. 127.0.0.1:8080). Remember, your API is running on a separate process on a separate port. This means that you'll have two seperate "domains" from which you'll be hosting content: a domain for your Node app (which responds to GET and POST) and your server, serving just static files (index.html, css, etc).
+To run your client side-by-side with your server, consider running a static server such as the npm modules `http-server`, `node-static`, or `live-server` in the same directory. Whatever port it uses is what you'll be putting in your browser to test (e.g. 127.0.0.1:8080). Remember, your API is running on a separate process on a separate port. This means that you'll have two seperate "domains" from which you'll be hosting content: a domain for your Node app (which responds to GET and POST) and your server, serving just static files (index.html, css, etc).
 
 Take a few minutes to browse through the front-end code provided. It should all be very familiar, the only difference is that you are now directing http requests at your own endpoint instead of an outside API.
 
