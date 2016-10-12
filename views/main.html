@@ -1,5 +1,5 @@
-<div class="header">
-  <h3 class="text-muted">chatty</h3>
+<div class="header centre">
+  <h3 class="text-success">chatty</h3>
 </div>
 
 <h4>Latest Chats:</h4>
@@ -9,6 +9,6 @@
 		<input ng-model="newMessage" type="text" placeholder="Hello!">
 	</form>
 
-	<div ng-repeat="message in messages track by $index">{{ message }}</div>
+	<div ng-repeat="message in messages track by $index"> <u><em>message</em></u> : <strong>{{ message.message }}</strong> <u><em>time</em></u>  : <strong>{{message.time | date : "short"}}</strong></div>
 
 </div>
