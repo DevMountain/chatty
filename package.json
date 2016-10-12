@@ -1,0 +1,24 @@
+{
+  "name": "chatty",
+  "version": "1.0.0",
+  "description": "chatty setup",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thai56/chatty.git"
+  },
+  "author": "THAI TRAN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thai56/chatty/issues"
+  },
+  "homepage": "https://github.com/Thai56/chatty#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}

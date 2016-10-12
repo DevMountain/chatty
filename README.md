@@ -123,7 +123,7 @@ This is the only front-end change we need to make! Now we just need to add dates
 ```javascript
 messages.push({
   message: req.body.message,
-  time: new Date()
+  time: new Date().getHours()
 });
 ```
 
