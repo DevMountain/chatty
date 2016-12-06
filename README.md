@@ -19,7 +19,7 @@ You're going to use Node.js and Express to build a basic REST-based chat server.
 1. Initialize express and assign it the app variable `var app = express()`
 1. Start listening to a port using `app.listen(3000)`
 
-We need to send our client-side code (located in the public folder) to the user when they go to our site. We'll also want express to automatically parse stringified JSON data coming in and assign it as a JS Object to `req.body`.
+We need to send our client-side code (located in the assets folder) to the user when they go to our site. We'll also want express to automatically parse stringified JSON data coming in and assign it as a JS Object to `req.body`.
 
 The express and body-parser packages provide an easy way to do these two tasks. After `var app = express()` insert these two lines:
 ```javascript
