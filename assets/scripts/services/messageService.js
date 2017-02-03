@@ -4,11 +4,11 @@ angular.module('chattyApp')
   .service('messageService', function ( $http ) {
     
       this.getMessages = function () {
-        return $http.get('http://localhost:8989');
+        return $http.get('/messages');
       }
 
       this.addMessage = function ( message ) {
-        return $http.post('http://localhost:8989', { message: message });
+        return $http.post('/messages', { message: message });
       }
     
   });
