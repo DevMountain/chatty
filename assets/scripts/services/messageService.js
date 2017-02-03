@@ -1,14 +1,14 @@
 'use strict';
 
 angular.module('chattyApp')
-  .factory('messageService', function ( $http ) {
-    return {
-      getMessages: function () {
+  .service('messageService', function ( $http ) {
+    
+      this.getMessages = function () {
         return $http.get('/messages');
-      },
+      }
 
-      addMessage: function ( message ) {
+      this.addMessage = function ( message ) {
         return $http.post('/messages', { message: message });
       }
-    };
+    
   });
